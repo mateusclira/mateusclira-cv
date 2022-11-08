@@ -10,17 +10,17 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-    - secretName: argocd-tls
-      hosts:
-        - "change-me"
+  - secretName: argocd-tls
+    hosts:
+    - "change-me"
   rules:
-    - host: "change-me"
-      http:
-        paths:
-          - pathType: Prefix
-            path: "/" # "*" is needed. Without this, the UI Javascript and CSS will not load properly
-            backend:
-              service:
-                name: argocd-server
-                port:
-                  number: 80
+  - host: "change-me"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/" # "*" is needed. Without this, the UI Javascript and CSS will not load properly
+        backend:
+          service:
+            name: argocd-server
+            port:
+              number: 80

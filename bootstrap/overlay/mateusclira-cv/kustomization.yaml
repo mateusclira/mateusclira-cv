@@ -1,6 +1,6 @@
 resources:
-- ../bases/namespaces
-- ../bases/argocd
+- ../../bases/namespaces
+- ../../bases/argocd
 
 patches:
 - target:
