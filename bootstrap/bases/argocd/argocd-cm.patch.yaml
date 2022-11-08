@@ -3,4 +3,13 @@ kind: ConfigMap
 metadata:
   name: argocd-cm
 data:
-  kustomize.buildOptions: "--enable-alpha-plugins"
+  dex.config: |
+    connectors:
+    - type: microsoft
+      id: microsoft
+      name: Mateus Lira's CV
+      config:
+        clientID: ba2bf1d7-1ec2-432e-a5a6-95169519645c
+        clientSecret: 587b507c-b171-43be-997b-3ea89c5b47b1
+        redirectURI: https://argocd.mateusclira.tech
+        tenant: ffffffff-ffff-ffff-ffff-ffffffffffff
