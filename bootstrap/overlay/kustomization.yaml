@@ -19,7 +19,7 @@ patches:
   patch: |-
     - op: replace
       path: /spec/tls/0/hosts/0
-      value: 'argocd.cv.mateusclira.tech'
+      value: 'argocd.mateusclira.tech'
     - op: replace
       path: /spec/rules/0/host
       value: 'argocd.mateusclira.tech'
