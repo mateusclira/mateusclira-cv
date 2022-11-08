@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: general
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/mateusclira/mateusclira-cv.git
+      revision: HEAD
+      directories:
+      - path: "change-me"
+      - path: "change-me"
+  template:
+    metadata:
+      name: "{{path[1]}}"
+    spec:
+      syncPolicy:
+        automated:
+          selfHeal: false
+      project: "{{path[0]}}"
+      source:
+        repoURL: https://github.com/mateusclira/mateusclira-cv.git
+        targetRevision: HEAD
+        path: "{{path[0]}}/{{path[1]}}"
+        helm:
+          releaseName: "{{path[1]}}"
+          valueFiles:
+          - "/{{path[0]}}/{{path[1]}}/values.yaml"
+          - "/{{path}}/values.yaml"
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: "{{path[0]}}"

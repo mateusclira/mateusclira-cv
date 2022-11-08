@@ -1,0 +1,4 @@
+creation_rules:
+- path_regex: .*/mateusclira-cv/.*
+  azure-kv: 6e2b326307044f619bf21577c43fb31b
+  encrypted_regex: "^(data|stringData|global|apiKey|cfToken|privatekey|publickey)$"
