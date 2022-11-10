@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cv
+  template:
+    metadata:
+      labels:
+        app: cv
+    spec:
+      containers:
+      - name: cv
+        image: mateusclira/myresume:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cv
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+  selector:
+    app: cv

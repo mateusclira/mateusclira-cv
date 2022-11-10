@@ -1,5 +1,5 @@
 FROM alpine
-LABEL version="1.0.0" description="Disponibilizando site com NGINX" maintainer="Mateus Lira - mateus@mateusclira.tech"
+LABEL version="1.0.1" description="Disponibilizando site com NGINX" maintainer="Mateus Lira - mateus@mateusclira.tech"
 
 RUN apk update
 
