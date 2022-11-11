@@ -1,0 +1,7 @@
+services:
+ web:
+  image: resumemateusclira/myresume:latest
+  container_name: myresume
+  restart: always
+  ports:
+   - "80:80"    
