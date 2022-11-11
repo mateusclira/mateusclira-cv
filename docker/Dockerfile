@@ -1,15 +1,20 @@
-FROM alpine
+# gerar a imagem utilizando php + apache, devido a ser uma imagem unica
+# caso for usar o nginx ele somente serve para exibir arquivos html, caso for precisar do php
+# vc devera ciar um outro container do php-fm e víncular com o nginx
+# tutorial https://www.nanoshots.com.br/2017/01/docker-containerizado-php7-fpm-nginx-e.html
 
-RUN apk update
+FROM php:7.4-apache
 
-RUN apk add nginx
+RUN apt-get update
+RUN a2enmod rewrite
 
-COPY myresume /usr/share/nginx/html
+WORKDIR /var/www/html
 
-COPY default.conf /etc/nginx/conf.d/default.conf
+# copia para pastas onde o workdir está apontando
+COPY myresume .
 
-WORKDIR /usr/share/nginx/html
+# sobrescrever o arquivo de configuração
+COPY conf /etc/apache2/sites-enabled/
 
 EXPOSE 80/tcp
-
-CMD ["-g" ,"daemon off;"]
+CMD ["apache2-foreground"]
