@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cv
-        image: mateusclira/myresume:latest
+        image: mateusclira/myresume:php
         ports:
         - containerPort: 80
 ---

@@ -1,6 +1,6 @@
 services:
  web:
-  image: mateusclira/myresume:latest
+  image: mateusclira/myresume:php1
   container_name: myresume
   restart: always
   ports:
